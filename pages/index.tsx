@@ -4,17 +4,23 @@ import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date'
+import { GetStaticProps } from 'next';
+import type { PostData } from '../lib/posts';
 
-export async function getStaticProps() {
+type Props = {
+  allPostsData: PostData[];
+};
+
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,
     },
   };
-}
+};
 
-export default function Home( {allPostsData} ) {
+export default function Home( { allPostsData }: Props ) {
   return (
     <Layout home>
       <Head>

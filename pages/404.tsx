@@ -1,6 +1,7 @@
+import { FC } from "react";
 import Layout from "../components/layout";
 
-export default function Custom404() {
+const Custom404: FC = () => {
   return (
     <Layout>
       <h1>404 - Page Not Found</h1>
@@ -8,3 +9,5 @@ export default function Custom404() {
     </Layout>
   );
 }
+
+export default Custom404;
